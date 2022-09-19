@@ -8,30 +8,38 @@ document.addEventListener('DOMContentLoaded', function() {
 const p1_row = document.getElementById('p1class')
 document.addEventListener('DOMContentLoaded', function() {
     p1_row.addEventListener('click', function() {
-        classToViewDetailsInitialization(localStorage.getItem('p1'))
-        window.open('class-details.html', '_blank')
+        if (!localStorage.getItem('p1') == "Weekend") {
+            classToViewDetailsInitialization(localStorage.getItem('p1'))
+            window.open('class-details.html', '_blank')
+        }
     }, false)
 }, false)
 
 const p3_row = document.getElementById('p3class')
 document.addEventListener('DOMContentLoaded', function() {
     p3_row.addEventListener('click', function() {
-        classToViewDetailsInitialization(localStorage.getItem('p3'))
-        window.open('class-details.html', '_blank')
+        if (!localStorage.getItem('p1') == "Weekend") {
+            classToViewDetailsInitialization(localStorage.getItem('p3'))
+            window.open('class-details.html', '_blank')
+        }
     }, false)
 }, false)
 const p4_row = document.getElementById('p4class')
 document.addEventListener('DOMContentLoaded', function() {
     p4_row.addEventListener('click', function() {
-        classToViewDetailsInitialization(localStorage.getItem('p4'))
-        window.open('class-details.html', '_blank')
+        if (!localStorage.getItem('p1') == "Weekend") {
+            classToViewDetailsInitialization(localStorage.getItem('p4'))
+            window.open('class-details.html', '_blank')
+        }
     }, false)
 }, false)
 const p6_row = document.getElementById('p6class')
 document.addEventListener('DOMContentLoaded', function() {
     p6_row.addEventListener('click', function() {
-        classToViewDetailsInitialization(localStorage.getItem('p6'))
-        window.open('class-details.html', '_blank')
+        if (!localStorage.getItem('p1') == "Weekend") {
+            classToViewDetailsInitialization(localStorage.getItem('p6'))
+            window.open('class-details.html', '_blank')
+        }
     }, false)
 }, false)
 

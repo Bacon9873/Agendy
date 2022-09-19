@@ -71,30 +71,19 @@ function dayFourNormal() {
     localStorage.setItem('p6', "F")
 }
 
-function updateDate(daysToAdd) {
-    var today = new Date()
-    newDate = today.setDate(today.getDate() + daysToAdd)
+function weekend() {
+    classOne.innerHTML = "Weekend"
+    localStorage.setItem('p1', "Weekend")
 
-    shownDate = new Date(newDate)
-    if (shownDate.getDay() == 0 || shownDate.getDay() == 6) {
-        isShownDateWeekend = true
-    } else {
-        isShownDateWeekend = false
-    }
-    if (shownDate.getDay() == 1) {
-        isShownDateMonday = true
-    } else {
-        isShownDateMonday = false
-    }
-    if (shownDate.getDay() == 0) {
-        isShownDateSunday = true
-    } else {
-        isShownDateSunday = false
-    }
-    document.getElementById('date').innerHTML = shownDate.toDateString()
+    classTwo.innerHTML = "Weekend"
+    localStorage.setItem('p3', "Weekend")
+
+    classThree.innerHTML = "Weekend"
+    localStorage.setItem('p4', "Weekend")
+
+    classFour.innerHTML = "Weekend"
+    localStorage.setItem('p6', "Weekend")
 }
-
-
 
 function updateShownClasses() {
     if (day == 1) {
@@ -105,84 +94,89 @@ function updateShownClasses() {
         dayThreeNormal()
     } else if (day == 4) {
         dayFourNormal()
+    } else {
+        weekend()
     }
     document.getElementById('day').innerHTML = `Day: ${day}`
 }
 
 
-dayAdderCounter = 0
+var dayAdderCounter = 0
 const backOneDay = document.getElementById('backOneDay')
 document.addEventListener('DOMContentLoaded', function() {
     backOneDay.addEventListener('click', function() {
-        if (!isShownDateSunday && !isShownDateMonday) {
-            day = parseInt(day)
-            if (day == 1) {
-                day = 4
-            } else {
-                day -= 1
-            }
-        }
-        updateShownClasses()
         dayAdderCounter -= 1
-        updateDate(dayAdderCounter)
+        updateSchoolDay(dayAdderCounter)
     }, false)
 }, false)
 
 const forwardOneDay = document.getElementById('forwardOneDay')
 document.addEventListener('DOMContentLoaded', function() {
     forwardOneDay.addEventListener('click', function() {
-        if (!isShownDateWeekend) {
-            day = parseInt(day)
-            if (day == 4) {
-                day = 1
-            } else {
-                day += 1
-            }
-        }
-        updateShownClasses()
         dayAdderCounter += 1
-        updateDate(dayAdderCounter)
+        updateSchoolDay(dayAdderCounter)
     }, false)
 }, false)
 
-const date = new Date()
+function findDate(daysToAdd) {
+    var today = new Date()
+    newDate = today.setDate(today.getDate() + daysToAdd)
 
-var month = date.getMonth()
-if (`${date.getMonth() + 1}`.length == 1) {
-    month = '0' + `${date.getMonth() + 1}`
+    date = new Date(newDate)
+    document.getElementById('date').innerHTML = date.toDateString()
+
+    var month = date.getMonth() + 1
+    if (`${month}`.length == 1) {
+        month = '0' + `${date.getMonth() + 1}`
+    }
+
+    var dayOfMonth = date.getDate()
+    if (`${date.getDate() + 1}`.length == 1) {
+        if (!dayOfMonth == 1) {
+            dayOfMonth = '0' + `${date.getDate() + 1}`
+        } else {
+            dayOfMonth = '0' + `${date.getDate()}`
+        }
+    }
+
+    return `${date.getFullYear()}${month}${dayOfMonth}`
 }
 
-var dayOfMonth = date.getDate()
-if (`${date.getDate() + 1}`.length == 1) {
-    dayOfMonth = '0' + `${date.getDate() + 1}`
-}
 
-todaysDate = `${date.getFullYear()}${month}${dayOfMonth}`
-
-console.log(todaysDate);
 
 async function getJSON() {
-    return fetch('/popup-scripts/showing-classes/dates.json')
+    return fetch('https://api.jsonbin.io/v3/b/6327dd7ba1610e63862fccec')
         .then((response) => response.json())
         .then((responseJson) => { return responseJson });
 }
 
-
-async function updateThings() {
+async function updateSchoolDay(daysToAdd) {
     const dayNum = await this.getJSON()
     var foundDay = false
+    findDate(daysToAdd)
 
-    for (let i = 0; i < dayNum.dates.length; i++) {
-        if (dayNum.dates[i] == todaysDate) {
-            day = dayNum.dates[c + 1]
+    console.log(findDate(daysToAdd));
+
+    for (let i = 0; i < dayNum.record.dates.length; i++) {
+        if (dayNum.record.dates[i] == findDate(daysToAdd)) {
+            day = dayNum.record.dates[i + 1]
             foundDay = true
         }
     }
-    localStorage.setItem('day', day)
+    if (!foundDay) {
+        day = "Weekend"
+    }
+    console.log(day);
 
+    localStorage.setItem('day', day)
     day = localStorage.getItem('day')
     updateShownClasses()
-    updateDate(0)
+}
+
+
+async function updateThings() {
+    updateSchoolDay(0)
+    updateShownClasses()
 }
 
 updateThings()
