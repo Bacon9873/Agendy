@@ -97,7 +97,6 @@ function createNecessaryAssignments() {
     for (let i = 0; i < parseInt(localStorage.getItem('largest-assignment-number-' + currClassLetter)) - 1; i++) {
         addNewAssignment()
         assignmentCount += 1
-        console.log('hello');
     }
 }
 createNecessaryAssignments()
