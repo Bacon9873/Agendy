@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Classes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body id="body">
+    <div class="container mt-3 text">
+        <h1 class="display-1">Edit Classes</h1>
+        <div class="container text-center">
+            <h1 class="display-1">Classes</h1>
+            <br />
+            <h5>Day 1A</h5>
+            <table id="table-1-classes-editing" class="table">
+                <tbody>
+                    <tr id="p1time">
+                        <th>8:45-10:00</th>
+                    </tr>
+                    <tr id="p1class">
+                        <td>
+                            <input class="text-center" id="class-a" placeholder="Class A" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-a-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr id="p2time">
+                        <th>10:00-10:20</th>
+                    </tr>
+                    <tr id="p2class">
+                        <td>
+                            <p>Homeroom</p>
+                        </td>
+                    </tr>
+                    <tr id="p3time">
+                        <th>10:22-11:39</th>
+                    </tr>
+                    <tr id="p3class">
+                        <td>
+                            <input class="text-center" id="class-b" placeholder="Class B" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-b-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr id="p4time">
+                        <th>11:44-1:00</th>
+                    </tr>
+                    <tr id="p4class">
+                        <td>
+                            <input class="text-center" id="class-c" placeholder="Class C" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-c-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr id="p5time">
+                        <th>1:00-1:56</th>
+                    </tr>
+                    <tr id="p5class">
+                        <td>
+                            <p>Lunch</p>
+                        </td>
+                    </tr>
+                    <tr id="p6time">
+                        <th>2:01-3:18</th>
+                    </tr>
+                    <tr id="p6class">
+                        <td>
+                            <input class="text-center" id="class-d" placeholder="Class D" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-d-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br />
+            <h5>Day 2A</h5>
+
+            <table id="table-2-classes-editing" class="table">
+                <tbody>
+                    <tr>
+                        <th>8:45-10:00</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="text-center" id="class-e" placeholder="Class E" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-e-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>10:00-10:20</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Homeroom</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>10:22-11:39</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="text-center" id="class-f" placeholder="Class F" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-f-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>11:44-1:00</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="text-center" id="class-g" placeholder="Class G" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-g-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>1:00-1:56</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Lunch</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>2:01-3:18</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="text-center" id="class-h" placeholder="Class H" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="class-h-desc" cols="30" rows="3" placeholder="Description (200 Characters)" maxlength="200"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div id="save-alert" class="alert alert-secondary">
+                Click save to update your classes.
+            </div>
+            <button id="save" class="btn btn-outline-primary">Save</button>
+        </div>
+    </div>
+</body>
+<!-- Main script for saving classes -->
+<script src="/editing-classes-scripts/editing-classes.js"></script>
+<!-- Themes -->
+<script src="/editing-classes-scripts/themes.js"></script>
+
+</html>
