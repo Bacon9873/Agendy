@@ -28,6 +28,7 @@ function updateClasses() {
         document.getElementById('save-alert').classList.remove('alert-secondary')
         document.getElementById('save-alert').classList.add('alert-danger')
     } else {
+        localStorage.clear()
         localStorage.setItem('class-a', userClassA)
         localStorage.setItem('class-a-desc', classADesc)
         localStorage.setItem('class-b', userClassB)
@@ -77,6 +78,7 @@ function updateClasses() {
 
         document.getElementById('save-alert').innerHTML = "Classes updated! Open the extension to view."
         document.getElementById('save-alert').classList.remove('alert-secondary')
+        document.getElementById('save-alert').classList.remove('alert-danger')
         document.getElementById('save-alert').classList.add('alert-success')
     }
 }
