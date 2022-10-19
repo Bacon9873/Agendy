@@ -28,13 +28,18 @@ function updateClasses() {
         document.getElementById('save-alert').classList.remove('alert-secondary')
         document.getElementById('save-alert').classList.add('alert-danger')
     } else {
+        // Clearing the storage and making sure that the theme doesn't go away
+        var theme = localStorage.getItem('theme')
         localStorage.clear()
+        localStorage.setItem('theme', theme)
+
+
         localStorage.setItem('class-a', userClassA)
         localStorage.setItem('class-a-desc', classADesc)
         localStorage.setItem('class-b', userClassB)
         localStorage.setItem('class-b-desc', classBDesc)
         localStorage.setItem('class-c', userClassC)
-        localStorage.setItem('class-d-desc', classCDesc)
+        localStorage.setItem('class-c-desc', classCDesc)
         localStorage.setItem('class-d', userClassD)
         localStorage.setItem('class-d-desc', classDDesc)
         localStorage.setItem('class-e', userClassE)
@@ -46,35 +51,8 @@ function updateClasses() {
         localStorage.setItem('class-h', userClassH)
         localStorage.setItem('class-h-desc', classHDesc)
 
-        // Class notes
-        localStorage.setItem('class-a-notes', '')
-        localStorage.setItem('class-b-notes', '')
-        localStorage.setItem('class-c-notes', '')
-        localStorage.setItem('class-d-notes', '')
-        localStorage.setItem('class-e-notes', '')
-        localStorage.setItem('class-f-notes', '')
-        localStorage.setItem('class-g-notes', '')
-        localStorage.setItem('class-h-notes', '')
-
         var today = new Date()
         localStorage.setItem('day-of-week', today.getDay())
-
-        document.getElementById('class-a').value = ''
-        document.getElementById('class-a-desc').value = ''
-        document.getElementById('class-b').value = ''
-        document.getElementById('class-b-desc').value = ''
-        document.getElementById('class-c').value = ''
-        document.getElementById('class-c-desc').value = ''
-        document.getElementById('class-d').value = ''
-        document.getElementById('class-d-desc').value = ''
-        document.getElementById('class-e').value = ''
-        document.getElementById('class-e-desc').value = ''
-        document.getElementById('class-f').value = ''
-        document.getElementById('class-f-desc').value = ''
-        document.getElementById('class-g').value = ''
-        document.getElementById('class-g-desc').value = ''
-        document.getElementById('class-h').value = ''
-        document.getElementById('class-h-desc').value = ''
 
         document.getElementById('save-alert').innerHTML = "Classes updated! Open the extension to view."
         document.getElementById('save-alert').classList.remove('alert-secondary')
@@ -82,3 +60,22 @@ function updateClasses() {
         document.getElementById('save-alert').classList.add('alert-success')
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('class-a').value = localStorage.getItem('class-a')
+    document.getElementById('class-a-desc').value = localStorage.getItem('class-a-desc')
+    document.getElementById('class-b').value = localStorage.getItem('class-b')
+    document.getElementById('class-b-desc').value = localStorage.getItem('class-b-desc')
+    document.getElementById('class-c').value = localStorage.getItem('class-c')
+    document.getElementById('class-c-desc').value = localStorage.getItem('class-c-desc')
+    document.getElementById('class-d').value = localStorage.getItem('class-d')
+    document.getElementById('class-d-desc').value = localStorage.getItem('class-d-desc')
+    document.getElementById('class-e').value = localStorage.getItem('class-e')
+    document.getElementById('class-e-desc').value = localStorage.getItem('class-e-desc')
+    document.getElementById('class-f').value = localStorage.getItem('class-f')
+    document.getElementById('class-f-desc').value = localStorage.getItem('class-f-desc')
+    document.getElementById('class-g').value = localStorage.getItem('class-g')
+    document.getElementById('class-g-desc').value = localStorage.getItem('class-g-desc')
+    document.getElementById('class-h').value = localStorage.getItem('class-h')
+    document.getElementById('class-h-desc').value = localStorage.getItem('class-h-desc')
+}, false)

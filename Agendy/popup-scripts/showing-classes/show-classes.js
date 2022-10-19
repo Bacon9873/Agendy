@@ -155,7 +155,6 @@ async function updateSchoolDay(daysToAdd) {
     var foundDay = false
     findDate(daysToAdd)
 
-    console.log(findDate(daysToAdd));
 
     for (let i = 0; i < dayNum.record.dates.length; i++) {
         if (dayNum.record.dates[i] == findDate(daysToAdd)) {
@@ -166,7 +165,6 @@ async function updateSchoolDay(daysToAdd) {
     if (!foundDay) {
         day = "Weekend"
     }
-    console.log(day);
 
     localStorage.setItem('day', day)
     day = localStorage.getItem('day')

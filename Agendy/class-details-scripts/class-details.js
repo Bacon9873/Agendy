@@ -31,7 +31,6 @@ document.getElementById("class-notes")
 
 function saveNotes() {
     localStorage.setItem(`class-${localStorage.getItem('class-letter')}-notes`, classNotesView.value)
-    console.log(localStorage.getItem(`class-${localStorage.getItem('class-letter')}-notes`), localStorage.getItem('class-letter'));
     document.getElementById('save-alert').classList.remove('alert-secondary')
     document.getElementById('save-alert').classList.add('alert-success')
     document.getElementById('save-alert').innerHTML = "Notes saved!"
@@ -44,7 +43,11 @@ function resetSaveAlert() {
 }
 
 function showSavedNotes() {
-    classNotesView.value = localStorage.getItem('class-notes')
+    var classNotes = localStorage.getItem('class-notes')
+    if (classNotes == 'null') {
+        classNotes = ''
+    }
+    classNotesView.value = classNotes
 }
 
 setInterval(() => {

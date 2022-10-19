@@ -59,7 +59,6 @@ function updateCurrentClass() {
     } else if (isBetweenTimes(13, 56, 15, 18)) {
         period = 6
     }
-    console.log(period);
 
     highlightPeriod(period)
 }

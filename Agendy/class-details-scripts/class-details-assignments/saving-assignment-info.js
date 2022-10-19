@@ -31,7 +31,7 @@ function showAssignmentInfo() {
     var dueDate
     var desc
 
-    for (let i = 0; i <= largestAssignmentID; i++) {
+    for (let i = 0; i < largestAssignmentID; i++) {
         // Title
         title = localStorage.getItem(`assignment-number-${i + 1}-title-` + currClassLetter)
         document.getElementById(`assignment-${i + 1}-title-input`).value = title

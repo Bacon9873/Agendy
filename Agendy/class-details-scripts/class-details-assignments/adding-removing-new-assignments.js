@@ -49,6 +49,7 @@ function addNewAssignment() {
     var titleInput = document.createElement('input')
     titleInput.type = 'text'
     titleInput.id = `assignment-${assignmentCount}-title-input`
+    titleInput.maxLength = '10'
     var dueDateLabel = document.createElement('h5')
     dueDateLabel.innerHTML = 'Due Date'
     var dueDateInput = document.createElement('input')

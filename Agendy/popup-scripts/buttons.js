@@ -1,3 +1,35 @@
+// Button for dropdown
+var shouldOpen = true
+
+const p1_dropdownButton = document.getElementById('p1-dropdown-button')
+document.addEventListener('DOMContentLoaded', function() {
+    p1_dropdownButton.addEventListener('click', function() {
+        shouldOpen = false
+    }, false)
+}, false)
+
+const p3_dropdownButton = document.getElementById('p3-dropdown-button')
+document.addEventListener('DOMContentLoaded', function() {
+    p3_dropdownButton.addEventListener('click', function() {
+        shouldOpen = false
+    }, false)
+}, false)
+
+const p4_dropdownButton = document.getElementById('p4-dropdown-button')
+document.addEventListener('DOMContentLoaded', function() {
+    p4_dropdownButton.addEventListener('click', function() {
+        shouldOpen = false
+    }, false)
+}, false)
+
+const p6_dropdownButton = document.getElementById('p6-dropdown-button')
+document.addEventListener('DOMContentLoaded', function() {
+    p6_dropdownButton.addEventListener('click', function() {
+        shouldOpen = false
+    }, false)
+}, false)
+
+// Other buttons
 const edit = document.getElementById('edit')
 document.addEventListener('DOMContentLoaded', function() {
     edit.addEventListener('click', function() {
@@ -8,39 +40,42 @@ document.addEventListener('DOMContentLoaded', function() {
 const p1_row = document.getElementById('p1class')
 document.addEventListener('DOMContentLoaded', function() {
     p1_row.addEventListener('click', function() {
-        if (localStorage.getItem('p1') != "Weekend") {
+        if (localStorage.getItem('p1') != "Weekend" && shouldOpen) {
             classToViewDetailsInitialization(localStorage.getItem('p1'))
             window.open('class-details.html', '_blank')
         }
+        shouldOpen = true
     }, false)
 }, false)
 
 const p3_row = document.getElementById('p3class')
 document.addEventListener('DOMContentLoaded', function() {
     p3_row.addEventListener('click', function() {
-        if (localStorage.getItem('p3') != "Weekend") {
+        if (localStorage.getItem('p3') != "Weekend" && shouldOpen) {
             classToViewDetailsInitialization(localStorage.getItem('p3'))
             window.open('class-details.html', '_blank')
         }
-        console.log(localStorage.getItem('p3'));
+        shouldOpen = true
     }, false)
 }, false)
 const p4_row = document.getElementById('p4class')
 document.addEventListener('DOMContentLoaded', function() {
     p4_row.addEventListener('click', function() {
-        if (localStorage.getItem('p4') != "Weekend") {
+        if (localStorage.getItem('p4') != "Weekend" && shouldOpen) {
             classToViewDetailsInitialization(localStorage.getItem('p4'))
             window.open('class-details.html', '_blank')
         }
+        shouldOpen = true
     }, false)
 }, false)
 const p6_row = document.getElementById('p6class')
 document.addEventListener('DOMContentLoaded', function() {
     p6_row.addEventListener('click', function() {
-        if (localStorage.getItem('p6') != "Weekend") {
+        if (localStorage.getItem('p6') != "Weekend" && shouldOpen) {
             classToViewDetailsInitialization(localStorage.getItem('p6'))
             window.open('class-details.html', '_blank')
         }
+        shouldOpen = true
     }, false)
 }, false)
 
