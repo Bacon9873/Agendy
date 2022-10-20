@@ -1,3 +1,4 @@
+// Initializes variables
 var day = localStorage.getItem('day')
 
 var classA = localStorage.getItem('class-a')
@@ -9,12 +10,12 @@ var classF = localStorage.getItem('class-f')
 var classG = localStorage.getItem('class-g')
 var classH = localStorage.getItem('class-h')
 
-classOne = document.getElementById('c1')
-classTwo = document.getElementById('c2')
-classThree = document.getElementById('c3')
-classFour = document.getElementById('c4')
+var classOne = document.getElementById('c1')
+var classTwo = document.getElementById('c2')
+var classThree = document.getElementById('c3')
+var classFour = document.getElementById('c4')
 
-
+// Function that displays day one on the popup by getting the variables from the db
 function dayOneNormal() {
     classOne.innerHTML = classA
     localStorage.setItem('p1', "A")
@@ -29,6 +30,7 @@ function dayOneNormal() {
     localStorage.setItem('p6', "D")
 }
 
+// Function that displays day two on the popup same way as day one
 function dayTwoNormal() {
     classOne.innerHTML = classE
     localStorage.setItem('p1', "E")
@@ -43,6 +45,7 @@ function dayTwoNormal() {
     localStorage.setItem('p6', "H")
 }
 
+// Function that displays day three on the popup same way as day one
 function dayThreeNormal() {
     classOne.innerHTML = classC
     localStorage.setItem('p1', "C")
@@ -57,6 +60,7 @@ function dayThreeNormal() {
     localStorage.setItem('p6', "B")
 }
 
+// Function that displays day four on the popup same way as day one
 function dayFourNormal() {
     classOne.innerHTML = classG
     localStorage.setItem('p1', "G")
@@ -71,6 +75,7 @@ function dayFourNormal() {
     localStorage.setItem('p6', "F")
 }
 
+// Function that displays weekend everywhere on weekends
 function weekend() {
     classOne.innerHTML = "Weekend"
     localStorage.setItem('p1', "Weekend")
@@ -85,6 +90,7 @@ function weekend() {
     localStorage.setItem('p6', "Weekend")
 }
 
+// Shows the proper classes based on the current day
 function updateShownClasses() {
     if (day == 1) {
         dayOneNormal()
@@ -100,13 +106,17 @@ function updateShownClasses() {
     document.getElementById('day').innerHTML = `Day: ${day}`
 }
 
+// Adds/subtracts days when the buttons are pressed
 
+// Subtracts a day
 var dayAdderCounter = 0
 const backOneDay = document.getElementById('backOneDay')
 document.addEventListener('DOMContentLoaded', function() {
     backOneDay.addEventListener('click', function() {
         dayAdderCounter -= 1
         updateSchoolDay(dayAdderCounter)
+
+        // Gets rid of the assignments preview if they're open
         document.getElementById('p1-assignments-td').classList.add('hidden-div')
         document.getElementById('p3-assignments-td').classList.add('hidden-div')
         document.getElementById('p4-assignments-td').classList.add('hidden-div')
@@ -119,11 +129,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
+// Adds a day
 const forwardOneDay = document.getElementById('forwardOneDay')
 document.addEventListener('DOMContentLoaded', function() {
     forwardOneDay.addEventListener('click', function() {
         dayAdderCounter += 1
         updateSchoolDay(dayAdderCounter)
+
+        // Gets rid of the assignments preview if they're open
         document.getElementById('p1-assignments-td').classList.add('hidden-div')
         document.getElementById('p3-assignments-td').classList.add('hidden-div')
         document.getElementById('p4-assignments-td').classList.add('hidden-div')
@@ -136,6 +149,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
+/* 
+    I don't know how I wrote this and I never want to touch it again but this basically
+    takes the info from the json and changes the day to the proper one given today's date
+*/
+
+// Gets todays date and puts it into a format that is readable for the computer
 function findDate(daysToAdd) {
     var today = new Date()
     newDate = today.setDate(today.getDate() + daysToAdd)
@@ -161,13 +180,14 @@ function findDate(daysToAdd) {
 }
 
 
-
+// Gets the json that is kindly hosted on jsonbin
 async function getJSON() {
     return fetch('https://api.jsonbin.io/v3/b/6327dd7ba1610e63862fccec')
         .then((response) => response.json())
         .then((responseJson) => { return responseJson });
 }
 
+// Updats the current day
 async function updateSchoolDay(daysToAdd) {
     const dayNum = await this.getJSON()
     var foundDay = false
@@ -189,7 +209,7 @@ async function updateSchoolDay(daysToAdd) {
     updateShownClasses()
 }
 
-
+// Makes everything pretty when user opens app
 async function updateThings() {
     updateSchoolDay(0)
     updateShownClasses()
@@ -197,4 +217,4 @@ async function updateThings() {
 
 updateThings()
 
-// TODO: Make system to load arbitrary date
+// TODO: Make system to load arbitrary date (Shouldn't be too hard)

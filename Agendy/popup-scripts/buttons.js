@@ -1,6 +1,14 @@
-// Button for dropdown
+/*
+    This file really sucks. I was lazy and I decided at the very beginning to create one file for all
+    the buttons on the popup, not realizing how big this project would become and how much spaghetti
+    this would cause. This file just contains a bunch of random buttons that do something on the
+    popup.html page. I tried to organize them as best as I could but this file causes a lot of headaches.
+*/
+
+// No clue what this does.
 var shouldOpen = true
 
+// I am like 90% sure these buttons are for the assignments preview
 const p1_dropdownButton = document.getElementById('p1-dropdown-button')
 document.addEventListener('DOMContentLoaded', function() {
     p1_dropdownButton.addEventListener('click', function() {
@@ -29,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
-// Other buttons
+// For editing classes
 const edit = document.getElementById('edit')
 document.addEventListener('DOMContentLoaded', function() {
     edit.addEventListener('click', function() {
@@ -37,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
+// Opens the p1 details page
 const p1_row = document.getElementById('p1class')
 document.addEventListener('DOMContentLoaded', function() {
     p1_row.addEventListener('click', function() {
@@ -48,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
+// Opens p3 class details page
 const p3_row = document.getElementById('p3class')
 document.addEventListener('DOMContentLoaded', function() {
     p3_row.addEventListener('click', function() {
@@ -58,6 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
         shouldOpen = true
     }, false)
 }, false)
+
+// Opens p4 class details page
 const p4_row = document.getElementById('p4class')
 document.addEventListener('DOMContentLoaded', function() {
     p4_row.addEventListener('click', function() {
@@ -68,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         shouldOpen = true
     }, false)
 }, false)
+
+// Opens p6 class details page
 const p6_row = document.getElementById('p6class')
 document.addEventListener('DOMContentLoaded', function() {
     p6_row.addEventListener('click', function() {
@@ -79,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
-
+// Function for initializing the proper variables for opening the various class details pages
 function classToViewDetailsInitialization(classLetter) {
     if (classLetter == 'A') {
         localStorage.setItem('class-name', localStorage.getItem('class-a'))

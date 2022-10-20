@@ -1,9 +1,23 @@
-// Detecting when the expand button is clicked for period 1
+/*
+    This entire file is basically repeated four times as there are four
+    periods with changing classes that previews. Therefore I will only
+    comment on the period one as it would just be repeating the same thing 
+    four times in a row if I commented more. You get what you pay for.
+*/
+
+// Counter so that you can toggle things on and off with modulo (probs a better way but eh)
 var p1_counter = 0
+
+// Detecting when the expand button is clicked for period 1
 const p1_expandButton = document.getElementById("p1-dropdown-button")
 document.addEventListener('DOMContentLoaded', function() {
     p1_expandButton.addEventListener('click', function() {
+        // Gets the class thats supposed to be there from the db
         var p1_classLetter = localStorage.getItem('p1').toLowerCase()
+
+        // Checks to see whether to toggle on or off the class details
+
+        // Toggle on
         if (p1_counter % 2 == 0) {
             p1_expand(p1_classLetter)
             var previewArea = document.getElementById('p1-assignments-td')
@@ -13,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 block: 'center',
                 inline: 'center'
             })
+
+            // Toggle off
         } else {
             p1_contract(p1_classLetter)
             document.getElementById('p1-assignments-td').classList.add('hidden-div')
@@ -21,9 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false)
 }, false)
 
+// A surprise tool that will help us later!
 var p1_numberOfShownAssignments = 0
 
+// Toggles on the assignment previews
 function p1_expand(classLetter) {
+    // Creates and finds all the nessicary DOM objects
     var assignmentsDiv = document.getElementById('p1-assignments')
 
     var assignmentsLabel = document.createElement('p')
@@ -36,6 +55,7 @@ function p1_expand(classLetter) {
     }
     assignmentsDiv.appendChild(assignmentsLabel)
 
+    // Gets all the assignments from the db and adds it to the div
     for (let i = 0; i < largestAssignmentNumber; i++) {
         let assignment = document.createElement('p')
         var title = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter)
@@ -52,16 +72,18 @@ function p1_expand(classLetter) {
             assignment.innerHTML = title + ' | Due Date: ' + date
         }
 
+        // Adds the div to the page
         assignment.id = `shown-assignment-${p1_numberOfShownAssignments}`
         assignmentsDiv.appendChild(assignment)
 
         p1_numberOfShownAssignments += 1
     }
 
-
+    // Changes the ^ arrow thingy button 
     document.getElementById('p1-dropdown-button').innerHTML = `<span class="material-symbols-outlined">expand_less</span>`
 }
 
+// Toggles off the preview for p1 by just for looping through all the dom objects and deleting them
 function p1_contract() {
     document.getElementById('p1-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
 
@@ -72,7 +94,10 @@ function p1_contract() {
     p1_numberOfShownAssignments = 0
 }
 
-// Detecting when the expand button is clicked for period 3
+/*
+    PERIOD 3
+*/
+
 var p3_counter = 0
 const p3_expandButton = document.getElementById("p3-dropdown-button")
 document.addEventListener('DOMContentLoaded', function() {
@@ -146,7 +171,9 @@ function p3_contract() {
     p3_numberOfShownAssignments = 0
 }
 
-// Detecting when the expand button is clicked for period 4
+/*
+    PERIOD 4
+*/
 var p4_counter = 0
 const p4_expandButton = document.getElementById("p4-dropdown-button")
 document.addEventListener('DOMContentLoaded', function() {
@@ -220,7 +247,9 @@ function p4_contract() {
     p4_numberOfShownAssignments = 0
 }
 
-// Detecting when the expand button is clicked for period 4
+/*
+    PERIOD 6
+*/
 var p6_counter = 0
 const p6_expandButton = document.getElementById("p6-dropdown-button")
 document.addEventListener('DOMContentLoaded', function() {
