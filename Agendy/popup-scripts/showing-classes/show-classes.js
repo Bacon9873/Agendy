@@ -107,6 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
     backOneDay.addEventListener('click', function() {
         dayAdderCounter -= 1
         updateSchoolDay(dayAdderCounter)
+        document.getElementById('p1-assignments-td').classList.add('hidden-div')
+        document.getElementById('p3-assignments-td').classList.add('hidden-div')
+        document.getElementById('p4-assignments-td').classList.add('hidden-div')
+        document.getElementById('p6-assignments-td').classList.add('hidden-div')
+
+        document.getElementById('p1-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p3-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p4-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p6-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
     }, false)
 }, false)
 
@@ -115,6 +124,15 @@ document.addEventListener('DOMContentLoaded', function() {
     forwardOneDay.addEventListener('click', function() {
         dayAdderCounter += 1
         updateSchoolDay(dayAdderCounter)
+        document.getElementById('p1-assignments-td').classList.add('hidden-div')
+        document.getElementById('p3-assignments-td').classList.add('hidden-div')
+        document.getElementById('p4-assignments-td').classList.add('hidden-div')
+        document.getElementById('p6-assignments-td').classList.add('hidden-div')
+
+        document.getElementById('p1-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p3-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p4-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
+        document.getElementById('p6-dropdown-button').innerHTML = `<span class="material-symbols-outlined"> expand_more </span>`
     }, false)
 }, false)
 

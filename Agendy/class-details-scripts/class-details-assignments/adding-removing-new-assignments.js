@@ -89,6 +89,11 @@ function removeNewAssignment() {
         assignmentsDiv.removeChild(assignmentsDiv.lastChild)
         assignmentCount -= 1
         localStorage.setItem('largest-assignment-number-' + currClassLetter, parseInt(localStorage.getItem('largest-assignment-number-' + currClassLetter)) - 1)
+    } else {
+        // Clears the last assignment if you click remove when there is no more to remove
+        document.getElementById("assignment-1-title-input").value = ""
+        document.getElementById("assignment-1-due-date").value = ""
+        document.getElementById("assignment-1-desc").value = ""
     }
 }
 

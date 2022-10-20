@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var p1_classLetter = localStorage.getItem('p1').toLowerCase()
         if (p1_counter % 2 == 0) {
             p1_expand(p1_classLetter)
-            document.getElementById('p1-assignments-td').classList.remove('hidden-div')
+            var previewArea = document.getElementById('p1-assignments-td')
+            previewArea.classList.remove('hidden-div')
+            previewArea.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            })
         } else {
             p1_contract(p1_classLetter)
             document.getElementById('p1-assignments-td').classList.add('hidden-div')
@@ -32,8 +38,18 @@ function p1_expand(classLetter) {
 
     for (let i = 0; i < largestAssignmentNumber; i++) {
         let assignment = document.createElement('p')
-        if (localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) != null && localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter) != null) {
-            assignment.innerHTML = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) + ' | Due Date: ' + localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+        var title = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter)
+        var date = localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+
+        assignment.innerHTML = "No Assignments!"
+        if (title != null && date != null) {
+            if (title == "") {
+                title = "Untitled"
+            }
+            if (date == "") {
+                date = "No Due Date"
+            }
+            assignment.innerHTML = title + ' | Due Date: ' + date
         }
 
         assignment.id = `shown-assignment-${p1_numberOfShownAssignments}`
@@ -64,13 +80,18 @@ document.addEventListener('DOMContentLoaded', function() {
         var p3_classLetter = localStorage.getItem('p3').toLowerCase()
         if (p3_counter % 2 == 0) {
             p3_expand(p3_classLetter)
-            document.getElementById('p3-assignments-td').classList.remove('hidden-div')
+            var previewArea = document.getElementById('p3-assignments-td')
+            previewArea.classList.remove('hidden-div')
+            previewArea.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            })
         } else {
             p3_contract(p3_classLetter)
-            document.getElementById('p3-assignments-td').classList.remove('hidden-div')
+            document.getElementById('p3-assignments-td').classList.add('hidden-div')
         }
         p3_counter += 1
-        console.log("Hello");
     }, false)
 }, false)
 
@@ -91,8 +112,18 @@ function p3_expand(classLetter) {
 
     for (let i = 0; i < largestAssignmentNumber; i++) {
         let assignment = document.createElement('p')
-        if (localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) != null && localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter) != null) {
-            assignment.innerHTML = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) + ' | Due Date: ' + localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+        var title = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter)
+        var date = localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+
+        assignment.innerHTML = "No Assignments!"
+        if (title != null && date != null) {
+            if (title == "") {
+                title = "Untitled"
+            }
+            if (date == "") {
+                date = "No Due Date"
+            }
+            assignment.innerHTML = title + ' | Due Date: ' + date
         }
 
         assignment.id = `shown-assignment-${p3_numberOfShownAssignments}`
@@ -123,13 +154,18 @@ document.addEventListener('DOMContentLoaded', function() {
         var p4_classLetter = localStorage.getItem('p4').toLowerCase()
         if (p4_counter % 2 == 0) {
             p4_expand(p4_classLetter)
-            document.getElementById('p4-assignments-td').classList.remove('hidden-div')
+            var previewArea = document.getElementById('p4-assignments-td')
+            previewArea.classList.remove('hidden-div')
+            previewArea.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            })
         } else {
             p4_contract(p4_classLetter)
-            document.getElementById('p4-assignments-td').classList.remove('hidden-div')
+            document.getElementById('p4-assignments-td').classList.add('hidden-div')
         }
         p4_counter += 1
-        console.log("Hello");
     }, false)
 }, false)
 
@@ -150,8 +186,18 @@ function p4_expand(classLetter) {
 
     for (let i = 0; i < largestAssignmentNumber; i++) {
         let assignment = document.createElement('p')
-        if (localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) != null && localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter) != null) {
-            assignment.innerHTML = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) + ' | Due Date: ' + localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+        var title = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter)
+        var date = localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+
+        assignment.innerHTML = "No Assignments!"
+        if (title != null && date != null) {
+            if (title == "") {
+                title = "Untitled"
+            }
+            if (date == "") {
+                date = "No Due Date"
+            }
+            assignment.innerHTML = title + ' | Due Date: ' + date
         }
 
         assignment.id = `shown-assignment-${p4_numberOfShownAssignments}`
@@ -182,13 +228,18 @@ document.addEventListener('DOMContentLoaded', function() {
         var p6_classLetter = localStorage.getItem('p6').toLowerCase()
         if (p6_counter % 2 == 0) {
             p6_expand(p6_classLetter)
-            document.getElementById('p6-assignments-td').classList.remove('hidden-div')
+            var previewArea = document.getElementById('p6-assignments-td')
+            previewArea.classList.remove('hidden-div')
+            previewArea.scrollIntoView({
+                behavior: 'auto',
+                block: 'center',
+                inline: 'center'
+            })
         } else {
             p6_contract(p6_classLetter)
-            document.getElementById('p6-assignments-td').classList.remove('hidden-div')
+            document.getElementById('p6-assignments-td').classList.add('hidden-div')
         }
         p6_counter += 1
-        console.log("Hello");
     }, false)
 }, false)
 
@@ -202,15 +253,26 @@ function p6_expand(classLetter) {
     assignmentsLabel.id = "assignments-label"
 
     var largestAssignmentNumber = localStorage.getItem('largest-assignment-number-' + classLetter)
-    if (largestAssignmentNumber == 'null') {
+    if (largestAssignmentNumber === null) {
         largestAssignmentNumber = 1
     }
     assignmentsDiv.appendChild(assignmentsLabel)
 
     for (let i = 0; i < largestAssignmentNumber; i++) {
         let assignment = document.createElement('p')
-        if (localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) != null && localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter) != null) {
-            assignment.innerHTML = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter) + ' | Due Date: ' + localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+        var title = localStorage.getItem(`assignment-number-${i + 1}-title-` + classLetter)
+        var date = localStorage.getItem(`assignment-number-${i + 1}-date-` + classLetter)
+        console.log('asdf');
+
+        assignment.innerHTML = "No Assignments!"
+        if (title != null && date != null) {
+            if (title == "") {
+                title = "Untitled"
+            }
+            if (date == "") {
+                date = "No Due Date"
+            }
+            assignment.innerHTML = title + ' | Due Date: ' + date
         }
 
         assignment.id = `shown-assignment-${p6_numberOfShownAssignments}`
